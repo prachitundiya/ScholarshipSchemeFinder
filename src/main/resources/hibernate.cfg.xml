@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+
+        <!-- MySQL Database Configuration -->
+        <property name="hibernate.connection.driver_class">
+            com.mysql.cj.jdbc.Driver
+        </property>
+
+        <property name="hibernate.connection.url">
+            jdbc:mysql://localhost:3308/scholarship_finder
+        </property>
+
+        <property name="hibernate.connection.username">
+            root
+        </property>
+
+        <property name="hibernate.connection.password"></property>
+
+        <!-- Hibernate Dialect -->
+        <property name="hibernate.dialect">
+            org.hibernate.dialect.MySQL8Dialect
+        </property>
+
+        <!-- Show SQL Queries -->
+        <property name="hibernate.show_sql">true</property>
+        <property name="hibernate.format_sql">true</property>
+
+        <!-- Automatically Create/Update Tables -->
+        <property name="hibernate.hbm2ddl.auto">update</property>
+
+        <mapping class="com.prachi.scholarshipfinder.entity.Scholarship"/>
+        <mapping class="com.prachi.scholarshipfinder.entity.Admin"/>
+    </session-factory>
+</hibernate-configuration>

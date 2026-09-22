@@ -1,10 +1,10 @@
-package com.prachi.scholarshipfinder.service;
+package com.prachi.scholarshipfinder.dao;
 
 import com.prachi.scholarshipfinder.entity.Scholarship;
 
 import java.util.List;
 
-public interface ScholarshipService {
+public interface ScholarshipDAO {
 
     // Add Scholarship
     void addScholarship(Scholarship scholarship);

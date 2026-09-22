@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Scholarship Finder</title>
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ================= HEADER ================= -->
+
+<header class="navbar">
+
+    <div class="logo">
+        🎓 Scholarship Finder
+    </div>
+
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#scholarships">Scholarships</a>
+        <a href="#about">About</a>
+    </nav>
+
+</header>
+
+
+<!-- ================= HERO ================= -->
+
+<section id="home" class="hero">
+
+    <div class="hero-content">
+
+        <p class="hero-small-title">
+            SCHOLARSHIP SCHEME FINDER
+        </p>
+
+        <h1>
+            Find the Right
+            <span>Scholarship</span>
+            for Your Future
+        </h1>
+
+        <p class="hero-description">
+            Discover scholarship opportunities based on your
+            education, category, state and eligibility.
+        </p>
+
+        <div class="hero-buttons">
+
+            <a href="#scholarships" class="btn primary-btn">
+                🔍 Find Scholarships
+            </a>
+
+            <a href="#about" class="btn secondary-btn">
+                Learn More
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= SCHOLARSHIP SEARCH ================= -->
+
+<section id="scholarships" class="scholarship-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">
+            EXPLORE OPPORTUNITIES
+        </p>
+
+        <h2>
+            Find Scholarships
+        </h2>
+
+        <p>
+            Search and discover scholarships available for students.
+        </p>
+
+    </div>
+
+
+    <!-- SEARCH -->
+
+    <div class="search-container">
+
+        <input
+                type="text"
+                id="searchInput"
+                placeholder="Enter scholarship name..."
+        >
+
+        <button
+                class="search-btn"
+                onclick="searchScholarships()"
+        >
+            🔍 Search
+        </button>
+
+    </div>
+
+
+    <!-- FILTER BUTTONS -->
+
+    <div class="filter-buttons">
+
+        <button onclick="loadAllScholarships()">
+            All Scholarships
+        </button>
+
+        <button onclick="searchByState()">
+            By State
+        </button>
+
+        <button onclick="searchByCategory()">
+            By Category
+        </button>
+
+        <button onclick="searchByIncome()">
+            By Income
+        </button>
+
+    </div>
+
+
+    <!-- RESULTS -->
+
+    <div id="scholarshipResults" class="scholarship-results">
+
+        <div class="empty-message">
+
+            <div class="empty-icon">
+                🎓
+            </div>
+
+            <h3>
+                Search for Scholarships
+            </h3>
+
+            <p>
+                Enter a scholarship name or choose a filter
+                to view available scholarships.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= ABOUT ================= -->
+
+<section id="about" class="about-section">
+
+    <div class="section-heading">
+
+        <p class="section-label">
+            ABOUT THE PLATFORM
+        </p>
+
+        <h2>
+            Scholarship Finder
+        </h2>
+
+        <p>
+            A simple platform designed to help students
+            discover scholarship opportunities in one place.
+        </p>
+
+    </div>
+
+
+    <div class="feature-container">
+
+        <!-- FEATURE 1 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                🔍
+            </div>
+
+            <h3>
+                Easy Search
+            </h3>
+
+            <p>
+                Search scholarships quickly using scholarship
+                name, state, category or income.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 2 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📚
+            </div>
+
+            <h3>
+                Multiple Opportunities
+            </h3>
+
+            <p>
+                Explore scholarship schemes from different
+                departments and organizations.
+            </p>
+
+        </div>
+
+
+        <!-- FEATURE 3 -->
+
+        <div class="feature-card">
+
+            <div class="feature-icon">
+                📅
+            </div>
+
+            <h3>
+                Important Deadlines
+            </h3>
+
+            <p>
+                Check scholarship deadlines and important
+                application information in one place.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HELP / CALL TO ACTION ================= -->
+
+<section class="admin-section">
+
+    <div class="admin-box">
+
+        <div>
+
+            <p class="section-label">
+                FIND YOUR OPPORTUNITY
+            </p>
+
+            <h2>
+                Start Your Scholarship Search
+            </h2>
+
+            <p>
+                Explore available scholarships and discover
+                opportunities that match your needs.
+            </p>
+
+        </div>
+
+        <a
+                href="#scholarships"
+                class="btn primary-btn"
+        >
+            🔍 Explore Scholarships
+        </a>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-content">
+
+        <h3>
+            🎓 Scholarship Finder
+        </h3>
+
+        <p>
+            Helping students discover educational opportunities.
+        </p>
+
+        <p class="copyright">
+            © 2026 Scholarship Finder. All rights reserved.
+        </p>
+
+    </div>
+
+</footer>
+
+
+<!-- ================= JAVASCRIPT ================= -->
+
+<script src="js/script.js"></script>
+
+</body>
+
+</html>

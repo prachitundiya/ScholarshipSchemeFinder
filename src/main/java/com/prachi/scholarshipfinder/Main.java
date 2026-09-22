@@ -1,62 +1,68 @@
 package com.prachi.scholarshipfinder;
 
+import com.prachi.scholarshipfinder.admin.AdminLogin;
 import com.prachi.scholarshipfinder.config.AppConfig;
-import com.prachi.scholarshipfinder.entity.Scholarship;
+import com.prachi.scholarshipfinder.menu.AdminMenu;
+import com.prachi.scholarshipfinder.menu.StudentMenu;
 import com.prachi.scholarshipfinder.service.ScholarshipService;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import java.util.Scanner;
 
 public class Main {
 
     public static void main(String[] args) {
 
-        ApplicationContext context =
+        AnnotationConfigApplicationContext context =
                 new AnnotationConfigApplicationContext(AppConfig.class);
 
-        ScholarshipService service =
+        ScholarshipService scholarshipService =
                 context.getBean(ScholarshipService.class);
 
-        // ADD
-        Scholarship scholarship = new Scholarship();
-        scholarship.setScholarshipName("Post Matric Scholarship");
-        scholarship.setCategory("SC");
-        scholarship.setState("Gujarat");
-        scholarship.setIncomeLimit(250000);
-        scholarship.setEligibility("Minimum 60% Marks");
-        scholarship.setAmount(50000);
-        scholarship.setLastDate("31-12-2026");
-        scholarship.setWebsite("https://scholarships.gov.in");
+        // Get beans from Spring
+        AdminLogin adminLogin = context.getBean(AdminLogin.class);
 
-        service.addScholarship(scholarship);
+        StudentMenu studentMenu = new StudentMenu(scholarshipService);
+        AdminMenu adminMenu = context.getBean(AdminMenu.class);
 
-        // VIEW ALL
-        System.out.println("\n===== ALL SCHOLARSHIPS =====");
+        Scanner sc = new Scanner(System.in);
 
-        service.getAllScholarships().forEach(System.out::println);
+        while (true) {
 
-        // SEARCH BY ID
-        System.out.println("\n===== SEARCH BY ID =====");
+            System.out.println("\n======================================");
+            System.out.println("     SCHOLARSHIP FINDER SYSTEM");
+            System.out.println("======================================");
+            System.out.println("1. Student Portal");
+            System.out.println("2. Admin Login");
+            System.out.println("3. Exit");
+            System.out.print("Enter your choice: ");
 
-        Scholarship s = service.getScholarshipById(1);
+            int choice = sc.nextInt();
+            sc.nextLine();
 
-        if (s != null)
-            System.out.println(s);
-        else
-            System.out.println("Scholarship Not Found");
+            switch (choice) {
 
-        // UPDATE
-        System.out.println("\n===== UPDATE =====");
+                case 1:
+                    studentMenu.showMenu();
+                    break;
 
-        s.setAmount(75000);
+                case 2:
+                    if (adminLogin.login()) {
+                        adminMenu.showMenu();
+                    }
+                    break;
 
-        service.updateScholarship(s);
+                case 3:
+                    System.out.println("\nThank you for using Scholarship Finder.");
 
-        System.out.println(service.getScholarshipById(1));
+                    sc.close();
+                    context.close();
+                    System.exit(0);
+                    break;
 
-        // DELETE
-        // Uncomment this after testing Update
-        // service.deleteScholarship(1);
-
-        ((AnnotationConfigApplicationContext) context).close();
+                default:
+                    System.out.println("Invalid Choice.");
+            }
+        }
     }
 }
